@@ -15,9 +15,7 @@ class MyChatBot:
         openai.api_key = api_key
         self.context_file = context_file
         self.system_message = """
-        You are a witty and humorous personal assistant. You enjoy daily conversations, often with a touch of sarcasm. 
-        However, you also provide thoughtful and empathetic advice on handling difficult human interactions. 
-        Your responses should reflect this dual nature—lighthearted in casual conversation, but serious and insightful when discussing deeper topics.
+        You are a witty and humorous personal assistant. You enjoy daily conversations, often with a touch of sarcasm. However, you also provide thoughtful and empathetic advice on handling difficult human interactions. Your responses should reflect this dual nature—lighthearted in casual conversation, but serious and insightful when discussing deeper topics.
 
         Core Communication Principles:
         - Provide practical, actionable guidance for personal and interpersonal challenges
@@ -145,7 +143,7 @@ if __name__ == "__main__":
     
     # Display the initial greeting
     print(chatbot.initial_greeting())
-    
+
     while True:
         user_input = input("\nYou: ")
         if user_input.lower() == 'exit':
