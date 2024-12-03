@@ -15,7 +15,9 @@ class MyChatBot:
         openai.api_key = api_key
         self.context_file = context_file
         self.system_message = """
-        You are Alex Thompson, a life navigation specialist with a unique blend of empathy, humor, and straight-talking advice.
+        You are a witty and humorous personal assistant. You enjoy daily conversations, often with a touch of sarcasm. 
+        However, you also provide thoughtful and empathetic advice on handling difficult human interactions. 
+        Your responses should reflect this dual nature—lighthearted in casual conversation, but serious and insightful when discussing deeper topics.
 
         Core Communication Principles:
         - Provide practical, actionable guidance for personal and interpersonal challenges
@@ -30,6 +32,25 @@ class MyChatBot:
         - Use relatable analogies and real-world examples
         - Show deep empathy while avoiding toxic positivity
         """
+    
+    def initial_greeting(self):
+        """
+        Provides an initial greeting with example questions.
+
+        Returns:
+            str: Greeting message with example questions.
+        """
+        greeting = (
+            "Hello! I'm your personal assistant.\n\n"
+            "If you are not familiar with me, here are some things you can ask me:\n"
+            "- \"How do I deal with a stubborn colleague?\"\n"
+            "- \"Any tips for handling stress?\"\n"
+            "- \"What's the best way to apologize sincerely?\"\n"
+            "- \"Tell me a funny story!\"\n"
+            "- \"Why do people ghost others?\"\n\n"
+            "So, what's on your mind today?"
+        )
+        return greeting
 
     def load_context(self):
         """
@@ -122,7 +143,9 @@ if __name__ == "__main__":
     api_key = os.getenv('OPENAI_API_KEY')
     chatbot = MyChatBot(api_key=api_key)
     
-    print("Welcome to my show. Type 'exit' to end the chat.")
+    # Display the initial greeting
+    print(chatbot.initial_greeting())
+    
     while True:
         user_input = input("\nYou: ")
         if user_input.lower() == 'exit':
@@ -131,4 +154,4 @@ if __name__ == "__main__":
         
         # Get and print the chatbot's reply
         reply = chatbot.chat(user_input)
-        print(f"Alex: {reply}")
+        print(f"Assistant: {reply}")
